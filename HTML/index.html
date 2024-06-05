@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+
+    <title>Toys</title>
+</head>
+
+<body>
+    <div id="app">
+        <h1>Toys</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Brand</th>
+                    <th>Model</th>
+                    <th>Price</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr v-for="toy in Toys" :key="toy.id">
+                    <td>{{ toy.id }}</td>
+                    <td>{{ toy.brand }}</td>
+                    <td>{{ toy.model }}</td>
+                    <td>{{ toy.price }}</td>
+                    <!-- <td>
+                        <button @click="delete"(toy.id)>Delete</button>
+                    </td> -->
+                </tr>
+            </tbody>
+        </table>
+        <input type="number" id="toyId" v-model="Toy.Id" placeholder="Enter Id">
+        <input type="text" id="toyBrand" v-model="Toy.Brand" placeholder="Enter Brand">
+        <input type="text" id="toyModel" v-model="Toy.Model" placeholder="Enter Model">
+        <input type="number" id="toyPrice" v-model="Toy.Price" placeholder="Enter Price">
+        <button class="btn btn-primary" @click="add(Toy)">Add Toy</button>
+        <br></br>
+        <input type="text" id="getToyId" v-model="GetToy.Id" placeholder="Enter Id">
+        <button class="btn btn-primary" @click="getById(GetToy.Id)">Get Toy</button>
+        {{GetToy}}
+        <br></br>
+        <input type="number" id="deleteToyId" v-model="deleteId" placeholder="Indtast Id til sletning">
+        <button class="btn btn-primary" @click="deleteToy(deleteId)">Slet</button>
+        </div>
+    <script src="index.js"></script>
+
+</body>
+
+</html>
